@@ -127,3 +127,16 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# SPICE (Das SPICE, sie wissen bescheid!)
+*.prb
+*.out
+*.net
+*.MVL
+*.dat
+*.cir
+*.als
+*.1OP
+*.xrf
+*.scv
+*.mif
