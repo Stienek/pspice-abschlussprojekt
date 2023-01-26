@@ -1,0 +1,9 @@
+Leistungen:
+Nutzleistung:
+AVGX(I(R5)*(V(R5:1)-V(R5:2)),20m)
+Verbrauchsleistung:
+AVGX(I(R5)*V(R5:2)+I(R1)*(V(R1:1)-V(R1:2))+I(R2)*(V(R2:1)-V(R2:2))+I(R3)*V(R3:1)+I(R4)*V(R4:1),20m)
+Gesamtleistung:
+AVGX(I(R5)*V(R5:2)+I(R1)*(V(R1:1)-V(R1:2))+I(R2)*(V(R2:1)-V(R2:2))+I(R3)*V(R3:1)+I(R4)*V(R4:1)+I(R5)*(V(R5:1)-V(R5:2)),20m)
+Wirkungsgrad: (Nutzleistung/Gesamtleistung):
+AVGX((I(R5)*(V(R5:1)-V(R5:2)))/(I(R5)*V(R5:2)+I(R1)*(V(R1:1)-V(R1:2))+I(R2)*(V(R2:1)-V(R2:2))+I(R3)*V(R3:1)+I(R4)*V(R4:1)+I(R5)*(V(R5:1)-V(R5:2))),20m)
