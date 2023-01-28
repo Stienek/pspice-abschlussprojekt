@@ -1,6 +1,6 @@
-*version 9.1 609410294
-u 154
-V? 12
+*version 9.1 371224832
+u 158
+V? 14
 U? 3
 Q? 2
 R? 6
@@ -17,14 +17,14 @@ PM? 3
 + 0 7 -4,-2,0,2,4
 .TRAN 1 0 0 0
 +0 0
-+1 20
++1 10
 +2 0
 +3 100u
 .STEP 0 0 0
-+ 0 V6
++ 0 V12
 + 4 -4
 + 5 4
-+ 6 1000m
++ 6 2000m
 + -1 -2,0,2,4
 @targets
 @attributes
@@ -41,9 +41,9 @@ AutoGenStim4ExtIFPorts 1
 @index
 pageloc 1 0 7869 
 @status
-n 0 123:00:26:13:36:11;1674736571 e 
-s 2832 123:00:26:13:36:14;1674736574 e 
-c 123:00:26:13:36:08;1674736568
+n 0 123:00:28:12:04:56;1674903896 e 
+s 2832 123:00:28:12:30:53;1674905453 e 
+c 123:00:28:12:04:52;1674903892
 *page 1 0 970 720 iA
 @ports
 port 18 AGND 140 110 h
@@ -57,7 +57,6 @@ port 31 BUBBLE 140 50 h
 a 1 x 3 0 0 0 hcn 100 LABEL=12
 port 23 AGND 630 250 h
 port 22 AGND 520 280 h
-port 20 AGND 410 300 h
 port 19 AGND 190 240 h
 port 21 AGND 260 220 h
 port 25 BUBBLE 310 160 h
@@ -70,6 +69,7 @@ port 28 BUBBLE 470 240 u
 a 1 x 3 0 0 0 hcn 100 LABEL=8
 port 27 BUBBLE 630 130 h
 a 1 x 3 0 0 0 hcn 100 LABEL=12
+port 20 AGND 410 300 h
 @parts
 part 13 VDC 40 60 h
 a 1 u 13 0 -11 18 hcn 100 DC=8
@@ -165,15 +165,15 @@ a 0 s 0:13 0 0 0 hln 100 GATE=
 a 0 a 0:13 0 0 0 hln 100 PKGREF=R4
 a 0 ap 9 0 15 0 hln 100 REFDES=R4
 a 0 u 13 0 15 25 hln 100 VALUE=1k
-part 153 VPWL 410 250 h
-a 0 a 0:13 0 0 0 hln 100 PKGREF=V11
-a 1 ap 9 0 20 10 hcn 100 REFDES=V11
+part 157 VPWL 410 250 h
+a 0 a 0:13 0 0 0 hln 100 PKGREF=V13
+a 1 ap 9 0 20 10 hcn 100 REFDES=V13
 a 1 u 0 0 0 0 hcn 100 DC=0
 a 1 u 0 0 0 0 hcn 100 AC=0
 a 1 u 0 0 0 0 hcn 100 T1=0
 a 1 u 0 0 0 0 hcn 100 V1=-4
+a 1 u 0 0 0 0 hcn 100 T2=10
 a 1 u 0 0 0 0 hcn 100 V2=4
-a 1 u 0 0 0 0 hcn 100 T2=20
 part 1 titleblk 970 720 h
 a 1 s 13 0 350 10 hcn 100 PAGESIZE=A
 a 1 s 13 0 180 60 hcn 100 PAGETITLE=
@@ -272,6 +272,10 @@ w 51
 a 0 up 0:33 0 0 0 hln 100 V=
 s 630 240 630 250 50
 a 0 up 33 0 632 245 hlt 100 V=
+w 61
+a 0 up 0:33 0 0 0 hln 100 V=
+s 410 300 410 290 60
+a 0 up 33 0 412 295 hlt 100 V=
 w 63
 a 0 sr 0 0 0 0 hln 100 LABEL=in2
 a 0 up 0:33 0 0 0 hln 100 V=
@@ -279,10 +283,6 @@ s 410 230 430 230 64
 a 0 sr 3 0 420 228 hcn 100 LABEL=in2
 a 0 up 33 0 420 229 hct 100 V=
 s 410 250 410 230 62
-w 61
-a 0 up 0:33 0 0 0 hln 100 V=
-s 410 300 410 290 60
-a 0 up 33 0 412 295 hlt 100 V=
 @junction
 j 140 100
 + p 15 -
@@ -428,12 +428,12 @@ j 630 240
 j 630 250
 + s 23
 + w 51
-j 410 250
-+ p 153 +
-+ w 63
 j 410 290
-+ p 153 -
++ p 157 -
 + w 61
+j 410 250
++ p 157 +
++ w 63
 @attributes
 a 0 s 0:13 0 0 0 hln 100 PAGETITLE=
 a 0 s 0:13 0 0 0 hln 100 PAGENO=1
