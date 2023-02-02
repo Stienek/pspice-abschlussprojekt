@@ -143,3 +143,4 @@ dmypy.json
 *.log
 *.dat
 *.raw
+*.fail
