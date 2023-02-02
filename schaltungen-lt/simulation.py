@@ -1,9 +1,5 @@
-
 from PyLTSpice.sim_batch import SimCommander
 from PyLTSpice import SpiceEditor
-from PyLTSpice.LTSteps import LTSpiceLogReader
-from PyLTSpice.raw_read import RawRead
-from PyLTSpice.raw_classes import Trace
 
 import numpy as np
 
@@ -120,5 +116,3 @@ if __name__=="__main__":
     #choose_simulations()
     create_netlists()
     simulate()
-    if plot_choice[1]:
-        draw_graphs()
