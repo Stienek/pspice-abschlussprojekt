@@ -5,9 +5,6 @@ from PyLTSpice.LTSteps import LTSpiceLogReader
 from PyLTSpice.raw_read import RawRead
 from PyLTSpice.raw_classes import Trace
 
-import matplotlib.pyplot as plt
-from matplotlib.patches import ConnectionPatch
-from matplotlib.gridspec import GridSpec
 import numpy as np
 
 import locale
@@ -38,13 +35,10 @@ def query_yes_no(question, default="yes"):
             sys.stdout.write("Please respond with 'yes' or 'no' " "(or 'y' or 'n').\n")
 
 sim_choice = {
-    1: False,
-    2: False,
-    3: False,
-    4: False
-}
-plot_choice = {
-    1: False
+    1: True,
+    2: True,
+    3: True,
+    4: True
 }
 
 def choose_simulations():
@@ -52,7 +46,6 @@ def choose_simulations():
     sim_choice[2] = query_yes_no("Simulate Task 2.1: ")
     sim_choice[3] = query_yes_no("Simulate Task 2.2: ")
     sim_choice[4] = query_yes_no("Simulate Task 2.3: ")
-    plot_choice[1] = query_yes_no("Regenerate plots: ")
 
 def create_netlists():
     if sim_choice[1]:
@@ -107,24 +100,24 @@ def create_netlists():
 
 def simulate(psims=4):
     if sim_choice[1]:
-        sim = SimCommander('rohdaten/a11.net',verbose=True)
+        sim = SimCommander('rohdaten/a11.net')
         sim.run(run_filename='rohdaten/a11.net')
+        sim.wait_completion()
     if sim_choice[2]:
         sim = SimCommander('rohdaten/a21.net')
         sim.run(run_filename='rohdaten/a21.net')
+        sim.wait_completion()
     if sim_choice[3]:
         sim = SimCommander('rohdaten/a22.net')
         sim.run(run_filename='rohdaten/a22.net')
+        sim.wait_completion()
     if sim_choice[4]:
         sim = SimCommander('rohdaten/a23.net')
         sim.run(run_filename='rohdaten/a23.net')
-    sim.wait_completion()
-
-def draw_graphs():
-    fig1 = plt.figure()
+        sim.wait_completion()
 
 if __name__=="__main__":
-    choose_simulations()
+    #choose_simulations()
     create_netlists()
     simulate()
     if plot_choice[1]:
