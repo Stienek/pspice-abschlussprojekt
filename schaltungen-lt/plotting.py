@@ -37,12 +37,24 @@ a21n = [i * 100 for i in a21n]
 log22       = LTSpiceLogReader(log_filename="rohdaten/a22.log", read_measures=True)
 a22pheiz    = log22.get_measure_values_at_steps(measure="pheiz",steps=range(log22.step_count))
 a22pverlust = log22.get_measure_values_at_steps(measure="pverlust",steps=range(log22.step_count))
+a22vtrig    = [log22["vtrig"][i] for i in range(log22.step_count)]
+a22pr5      = log22.get_measure_values_at_steps(measure="pr5",steps=range(log22.step_count))
+a22pr4      = log22.get_measure_values_at_steps(measure="pr4",steps=range(log22.step_count))
+a22pr3      = log22.get_measure_values_at_steps(measure="pr3",steps=range(log22.step_count))
+a22pr2      = log22.get_measure_values_at_steps(measure="pr2",steps=range(log22.step_count))
+a22pq1      = log22.get_measure_values_at_steps(measure="pq1",steps=range(log22.step_count))
 a22n        = log22.get_measure_values_at_steps(measure="n",steps=range(log22.step_count))
 a22n = [i * 100 for i in a22n]
 
 log23       = LTSpiceLogReader(log_filename="rohdaten/a23.log", read_measures=True)
 a23pheiz    = log23.get_measure_values_at_steps(measure="pheiz",steps=range(log23.step_count))
 a23pverlust = log23.get_measure_values_at_steps(measure="pverlust",steps=range(log23.step_count))
+a23vtrig    = [log23["vtrig"][i] for i in range(log23.step_count)]
+a23pr5      = log23.get_measure_values_at_steps(measure="pr5",steps=range(log23.step_count))
+a23pr4      = log23.get_measure_values_at_steps(measure="pr4",steps=range(log23.step_count))
+a23pr3      = log23.get_measure_values_at_steps(measure="pr3",steps=range(log23.step_count))
+a23pr2      = log23.get_measure_values_at_steps(measure="pr2",steps=range(log23.step_count))
+a23pq1      = log23.get_measure_values_at_steps(measure="pq1",steps=range(log23.step_count))
 a23n        = log23.get_measure_values_at_steps(measure="n",steps=range(log23.step_count))
 a23n = [i * 100 for i in a23n]
 
@@ -133,7 +145,7 @@ ax2111.grid()
 ax2112.grid()
 ax2121.grid()
 ax2122.grid()
-ax2122.legend()
+ax2122.legend(loc=4, fontsize='small')
 
 fig3 = plt.figure(dpi=100, figsize=(8, 6))
 fig3.set_constrained_layout(True)
@@ -153,11 +165,57 @@ ax3.set_ylim(0, 105)
 ax3.grid()
 ax3.legend()
 
+fig4 = plt.figure(dpi=100, figsize=(8, 6))
+fig4.set_constrained_layout(True)
+fig4.suptitle(r"\Huge{Verlustleistungen OPV}")
+gs4 = GridSpec(
+    1,
+    1
+)
+ax41 = fig4.add_subplot(gs4[0, 0])
+ax42 = ax41.twinx()
+ax41.plot(a22vtrig, a22pr5, linewidth=lwidth, linestyle='-', color='blue', label=r"P_{R1}")
+ax41.plot(a22vtrig, a22pr4, linewidth=lwidth, linestyle='--', color='blue', label=r"P_{R2}")
+ax41.plot(a22vtrig, a22pr3, linewidth=lwidth, linestyle='.', color='blue', label=r"P_{R4}")
+ax41.plot(a22vtrig, a22pr2, linewidth=lwidth, linestyle='-.', color='blue', label=r"P_{R3}")
+ax42.plot(a22vtrig, a22pq1, linewidth=lwidth, linestyle='-', color='orange', label=r"P_{R5}")
+ax41.set_xlabel(r"Einschaltdauer $[ \% ]$")
+ax41.set_ylabel(r"Verlustleistung $[ mW ]$", color='blue')
+ax42.set_ylabel(r"Verlustleistung $[ W ]$", color='orange')
+ax41.grid()
+ax41.legend()
+ax41.legend()
+
+fig5 = plt.figure(dpi=100, figsize=(8, 6))
+fig5.set_constrained_layout(True)
+fig5.suptitle(r"\Huge{Verlustleistungen MOSFET}")
+gs5 = GridSpec(
+    1,
+    1
+)
+ax51 = fig5.add_subplot(gs5[0, 0])
+ax52 = ax51.twinx()
+ax51.plot(a23vtrig, a23pr5, linewidth=lwidth, linestyle='-', color='blue', label=r"P_{R1}")
+ax51.plot(a23vtrig, a23pr4, linewidth=lwidth, linestyle='--', color='blue', label=r"P_{R2}")
+ax51.plot(a23vtrig, a23pr3, linewidth=lwidth, linestyle='.', color='blue', label=r"P_{R4}")
+ax51.plot(a23vtrig, a23pr2, linewidth=lwidth, linestyle='-.', color='blue', label=r"P_{R3}")
+ax52.plot(a23vtrig, a23pq1, linewidth=lwidth, linestyle='-', color='orange', label=r"P_{R5}")
+ax41.set_xlabel(r"Einschaltdauer $[ \% ]$")
+ax41.set_ylabel(r"Verlustleistung $[ mW ]$", color='blue')
+ax42.set_ylabel(r"Verlustleistung $[ W ]$", color='orange')
+ax41.grid()
+ax41.legend()
+ax41.legend()
+
 fig1.tight_layout()
 fig2.tight_layout()
 fig3.tight_layout()
+fig4.tight_layout()
+fig5.tight_layout()
 fig1.savefig("../medien/1.png")
 fig2.savefig("../medien/2.png")
 fig3.savefig("../medien/3.png")
+fig4.savefig("../medien/4.png")
+fig5.savefig("../medien/5.png")
 plt.show()
 

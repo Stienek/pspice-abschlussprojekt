@@ -74,6 +74,11 @@ def create_netlists():
             ".step param Vtrig list {vals}".format(vals=' '.join(str(i) for i in 8*(np.logspace(0, 1, 1000)-1)/9 - 4)),
             ".meas pheiz AVG I(R1)*(V(R11)-V(R12))",
             ".meas pverlust AVG I(R5)*(V(R51)-V(R52))+I(R4)*(V(R41)-V(R42))+I(R3)*V(R23)+I(R2)*V(R23)+I(R1)*V(R12)",
+            ".meas pr5 AVG I(R5)*(V(R51)-V(R52))",
+            ".meas pr4 AVG I(R4)*(V(R41)-V(R42))",
+            ".meas pr3 AVG I(R3)*V(R23)",
+            ".meas pr2 AVG I(R2)*V(R23)",
+            ".meas pq1 AVG I(R1)*V(R12)",
             ".meas n PARAM pheiz/(pheiz+pverlust)",
             ".tran 0 20m 0 10u"
         )
@@ -87,6 +92,11 @@ def create_netlists():
             ".step param Vtrig list {vals}".format(vals=' '.join(str(i) for i in 8*(np.logspace(0, 1, 1000)-1)/9 - 4)),
             ".meas pheiz AVG I(R1)*(V(R11)-V(R12))",
             ".meas pverlust AVG I(R5)*(V(R51)-V(R52))+I(R4)*(V(R41)-V(R42))+I(R3)*V(R23)+I(R2)*V(R23)+I(R1)*V(R12)",
+            ".meas pr5 AVG I(R5)*(V(R51)-V(R52))",
+            ".meas pr4 AVG I(R4)*(V(R41)-V(R42))",
+            ".meas pr3 AVG I(R3)*V(R23)",
+            ".meas pr2 AVG I(R2)*V(R23)",
+            ".meas pq1 AVG I(R1)*V(R12)",
             ".meas n PARAM pheiz/(pheiz+pverlust)",
             ".tran 0 20m 0 10u"
         )
