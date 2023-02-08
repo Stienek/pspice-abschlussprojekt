@@ -106,8 +106,8 @@
 			\begin{align*}
 				R_{ges}&=R_1+6\,\Omega \\
 				I_{ges}&=\frac{12\, V}{R_{ges}} \\
-				P_{heiz}=I_{ges}^2R_2&=12\, V\frac{6\,\Omega}{\left( R_1 + 6\,\Omega\right) ^2} \\
-				P_{verlust}=I_{ges}^2R_1&=12\, V\frac{R_1}{\left( R_1 + 6\,\Omega\right) ^2} \\
+				P_{heiz}=I_{ges}^2R_2&=(12\, V)^2\frac{6\,\Omega}{\left( R_1 + 6\,\Omega\right) ^2} \\
+				P_{verlust}=I_{ges}^2R_1&=(12\, V)^2\frac{R_1}{\left( R_1 + 6\,\Omega\right) ^2} \\
 				\eta &= \frac{P_{heiz}}{P_{heiz}+P_{verlust}}
 			\end{align*}
 		\end{columns}
@@ -156,6 +156,14 @@
 		\end{columns}
 	\end{frame}
 	\begin{frame}
+		\begin{center}
+			\begin{figure}[tbh]
+				\centering
+				\includegraphics[width=0.95\linewidth]{medien/2.eps}
+			\end{figure}
+		\end{center}
+	\end{frame}
+	\begin{frame}
 		\frametitle{Operationsverstärker (OPV)}
 		\begin{columns}
 			\column{0.5\textwidth}
@@ -165,27 +173,19 @@
 				\caption[Zweiter Aufbau]{Aufbau mit Operationsverstärkern als Leistungsregelung.}
 			\end{figure}
 			\column{0.5\textwidth}
+			Mit der Einschaltdauer(\underline{d}uty \underline{c}ycle) $\alpha$ gilt für die Heizleistung:
 			\begin{equation*}
-				P_{heiz}=U_{R5}I_{R5}
+				P_{heiz,\mu }(\alpha )= P_{heiz}\alpha = U_{R5,an}I_{R5,an}\alpha
 			\end{equation*}
-			Vereinfacht gilt
+			Für die Verlustleistung (vereinfacht):
 			\begin{equation*}
-				P_{verlust}=U_{Q1_{ds}}I_{R5}
+				P_{verlust,\mu }(\alpha )= P_{verl, var}\alpha + P_{verl, konst}
 			\end{equation*}
-			und daraus folgt
+			Und daraus folgt für den Wirkungsgrad:
 			\begin{equation*}
-				\eta=\frac{P_{heiz}}{P_{heiz}+P_{verlust}}
+				\eta=\frac{P_{heiz}\alpha }{(P_{heiz} + P_{verl, var})\alpha + P_{verl, konst}}
 			\end{equation*}
-			für eine Einschaltdauer(\underline{d}uty \underline{c}ycle) von $dc \gg 0\,\%$
 		\end{columns}
-	\end{frame}
-	\begin{frame}
-		\begin{center}
-			\begin{figure}[tbh]
-				\centering
-				\includegraphics[width=0.95\linewidth]{medien/2.eps}
-			\end{figure}
-		\end{center}
 	\end{frame}
 	\begin{frame}
 		\begin{center}
